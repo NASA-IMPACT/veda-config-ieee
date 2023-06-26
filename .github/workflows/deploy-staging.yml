@@ -67,12 +67,10 @@ jobs:
       # See comment on checks.yml - prep step
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Get submodules
-        env:
-          SSH_KEY_SUBMODULE: ${{secrets.DELTA_UI_FETCH_KEY}}
-        run: |
-          eval `ssh-agent -s`
-          ssh-add - <<< "${SSH_KEY_SUBMODULE}"; git submodule update --init --recursive
+        with:
+          lfs: "true"
+          submodules: "recursive"
+          
       - name: Restore node_modules
         uses: actions/cache@v2
         id: cache-node-modules
