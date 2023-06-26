@@ -16,7 +16,6 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: development
 
     steps:
       - name: Cancel Previous Runs
@@ -63,7 +62,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
-    environment: develop
 
     steps:
       # See comment on checks.yml - prep step
