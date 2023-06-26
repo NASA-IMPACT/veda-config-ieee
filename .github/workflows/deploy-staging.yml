@@ -10,8 +10,8 @@ on:
 env:
   NODE: 16
   DOMAIN_STAGING: https://uat.earthdata.nasa.gov/dashboard
-  DEPLOY_BUCKET_STAGING: climatedashboard-uat
-  DEPLOY_BUCKET_STAGING_REGION: us-east-1
+  DEPLOY_BUCKET_STAGING: climatedashboard-uat-ieee
+  DEPLOY_BUCKET_STAGING_REGION: us-west-2
 
 jobs:
   build:
