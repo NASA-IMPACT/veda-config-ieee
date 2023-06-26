@@ -9,7 +9,7 @@ on:
 
 env:
   NODE: 16
-  DOMAIN_STAGING: https://uat.earthdata.nasa.gov/dashboard
+  DOMAIN_STAGING:
   DEPLOY_BUCKET_STAGING: veda-config-ieee
   DEPLOY_BUCKET_STAGING_REGION: us-west-2
 
