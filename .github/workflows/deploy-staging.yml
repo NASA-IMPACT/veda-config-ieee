@@ -1,4 +1,4 @@
-# Deploy the site to AWS S3 on a push to specific branches
+# Deploy the site to AWS S3 on a push to specific branches.
 
 name: Deploy Staging - MCP (S3)
 
