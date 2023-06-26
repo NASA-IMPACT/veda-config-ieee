@@ -112,5 +112,5 @@ jobs:
           # When serving from a subpath:
           # SOURCE_DIR: ./deploy
           # Otherwise use the build directory directly:
-          # SOURCE_DIR: ./dist
-          SOURCE_DIR: ./deploy
+          SOURCE_DIR: ./dist
+          # SOURCE_DIR: ./deploy
