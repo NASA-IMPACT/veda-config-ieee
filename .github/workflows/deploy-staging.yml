@@ -16,6 +16,7 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: development
 
     steps:
       - name: Cancel Previous Runs
@@ -62,6 +63,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
+    environment: develop
 
     steps:
       # See comment on checks.yml - prep step
@@ -70,7 +72,7 @@ jobs:
         with:
           lfs: "true"
           submodules: "recursive"
-
+          
       - name: Restore node_modules
         uses: actions/cache@v2
         id: cache-node-modules
@@ -107,7 +109,7 @@ jobs:
         env:
           AWS_S3_BUCKET: ${{ env.DEPLOY_BUCKET_STAGING }}
           AWS_REGION: ${{ env.DEPLOY_BUCKET_STAGING_REGION }}
-          AWS_ACCESS_KEY_ID: AKIAY5OWQ36NK3GZAPVW
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           # When serving from a subpath:
           # SOURCE_DIR: ./deploy
