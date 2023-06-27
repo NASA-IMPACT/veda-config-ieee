@@ -1,0 +1,187 @@
+---
+id: sentinel-2-l2a
+name: "Sentinel-2 L2A"
+description: "Copernicus Sentinel-2 Collection 1 MSI Level-2A (L2A)"
+media:
+  src: ::file ./satellite_sentinel_2_cyano.jpg
+  alt: Sentinel in space
+  author:
+    name: ESA
+    url: https://www.caryinstitute.org/news-insights/podcast/researchers-recruit-drones-satellites-quest-understand-cyanobacteria
+layers:
+  - id: aot
+    stacCol: sentinel-2-l2a
+    name: Aerosol Optical Thickness
+    type: raster
+    description: ""
+    initialDatetime: newest
+    zoomExtent:
+      - 0
+      - 20
+    sourceParams:
+      assets: aot
+      colormap_name: rdylbu_r
+      rescale:
+        - 0
+        - 500
+    compare:
+      datasetId: sentinel-2-l2a
+      layerId: aot
+      mapLabel: |
+        ::js ({ dateFns, datetime, compareDatetime }) => {
+          return `${dateFns.format(datetime, 'LLL yyyy')} VS ${dateFns.format(compareDatetime, 'LLL yyyy')}`;
+        }
+    legend:
+      type: gradient
+      min: "0"
+      max: "500"
+      stops:
+        - "#4575b4"
+        - "#91bfdb"
+        - "#e0f3f8"
+        - "#ffffbf"
+        - "#fee090"
+        - "#fc8d59"
+        - "#d73027"
+  - id: nir
+    stacCol: sentinel-2-l2a
+    name: NIR 1 (band 8) - 10m
+    type: raster
+    description: ""
+    initialDatetime: newest
+    zoomExtent:
+      - 0
+      - 20
+    sourceParams:
+      assets: nir
+      colormap_name: coolwarm
+      rescale:
+        - 0
+        - 500
+    legend:
+      type: gradient
+      min: "0"
+      max: "500"
+      stops:
+        - "#4575b4"
+        - "#91bfdb"
+        - "#e0f3f8"
+        - "#ffffbf"
+        - "#fee090"
+        - "#fc8d59"
+        - "#d73027"
+  - id: red
+    stacCol: sentinel-2-l2a
+    name: Red (band 4) - 10m
+    type: raster
+    description: ""
+    initialDatetime: newest
+    zoomExtent:
+      - 0
+      - 20
+    sourceParams:
+      assets: red
+      colormap_name: coolwarm
+      rescale:
+        - 0
+        - 500
+    legend:
+      type: gradient
+      min: "0"
+      max: "500"
+      stops:
+        - "#4575b4"
+        - "#91bfdb"
+        - "#e0f3f8"
+        - "#ffffbf"
+        - "#fee090"
+        - "#fc8d59"
+        - "#d73027"
+  - id: blue
+    stacCol: sentinel-2-l2a
+    name: Blue (band 2) - 10m
+    type: raster
+    description: ""
+    initialDatetime: newest
+    zoomExtent:
+      - 0
+      - 20
+    sourceParams:
+      assets: blue
+      colormap_name: coolwarm
+      rescale:
+        - 0
+        - 500
+    legend:
+      type: gradient
+      min: "0"
+      max: "500"
+      stops:
+        - "#4575b4"
+        - "#91bfdb"
+        - "#e0f3f8"
+        - "#ffffbf"
+        - "#fee090"
+        - "#fc8d59"
+        - "#d73027"
+  - id: green
+    stacCol: sentinel-2-l2a
+    name: Green (band 3) - 10m
+    type: raster
+    description: ""
+    initialDatetime: newest
+    zoomExtent:
+      - 0
+      - 20
+    sourceParams:
+      assets: green
+      colormap_name: coolwarm
+      rescale:
+        - 0
+        - 500
+    legend:
+      type: gradient
+      min: "0"
+      max: "500"
+      stops:
+        - "#4575b4"
+        - "#91bfdb"
+        - "#e0f3f8"
+        - "#ffffbf"
+        - "#fee090"
+        - "#fc8d59"
+        - "#d73027"
+  - id: scl
+    stacCol: sentinel-2-l2a
+    name: Scene classification map (SCL)
+    type: raster
+    description: ""
+    initialDatetime: newest
+    zoomExtent:
+      - 0
+      - 20
+    sourceParams:
+      assets: scl
+      colormap_name: coolwarm
+      rescale:
+        - 0
+        - 500
+    legend:
+      type: gradient
+      min: "0"
+      max: "500"
+      stops:
+        - "#4575b4"
+        - "#91bfdb"
+        - "#e0f3f8"
+        - "#ffffbf"
+        - "#fee090"
+        - "#fc8d59"
+        - "#d73027"
+---
+
+<Block type='wide'>
+<Prose>
+# Sentinel-2
+</Prose>
+</Block>
