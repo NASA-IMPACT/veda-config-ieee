@@ -44,12 +44,12 @@ jobs:
             .veda/ui/node_modules
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package.json') }}
 
-      - name: Cache dist
-        uses: actions/cache@v2
-        id: cache-dist
-        with:
-          path: dist
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ github.workflow }}-${{ github.sha }}
+      # - name: Cache dist
+      #   uses: actions/cache@v2
+      #   id: cache-dist
+      #   with:
+      #     path: dist
+      #     key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ github.workflow }}-${{ github.sha }}
 
       - name: Install
         run: ./.veda/setup
@@ -80,12 +80,12 @@ jobs:
             .veda/ui/node_modules
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package.json') }}
 
-      - name: Restore dist cache
-        uses: actions/cache@v2
-        id: cache-dist
-        with:
-          path: dist
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ github.workflow }}-${{ github.sha }}
+      # - name: Restore dist cache
+      #   uses: actions/cache@v2
+      #   id: cache-dist
+      #   with:
+      #     path: dist
+      #     key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ github.workflow }}-${{ github.sha }}
 
       - name: Use Node.js ${{ env.NODE }}
         uses: actions/setup-node@v1
