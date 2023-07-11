@@ -19,6 +19,9 @@ module.exports = {
   pageOverrides: {
     // Content for the about page.
     // Type: Content override
-    aboutContent: './overrides/about.mdx'
+    aboutContent: './overrides/about.mdx',
+
+    headerBrand: './overrides/components/header-brand/index.mdx',
+    pageFooter: './overrides/components/page-footer/index.mdx',
   }
 };
