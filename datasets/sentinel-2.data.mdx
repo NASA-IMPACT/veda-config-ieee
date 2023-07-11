@@ -1,5 +1,5 @@
 ---
-id: sentinel-2-l2a
+id: sentinel-2-l2a-california
 name: "Sentinel-2 L2A"
 description: "Copernicus Sentinel-2 Collection 1 MSI Level-2A (L2A)"
 media:
@@ -9,8 +9,35 @@ media:
     name: ESA
     url: https://www.caryinstitute.org/news-insights/podcast/researchers-recruit-drones-satellites-quest-understand-cyanobacteria
 layers:
+  - id: visual
+    stacCol: sentinel-2-l2a-california
+    name: True Color
+    type: raster
+    description: ""
+    initialDatetime: newest
+    zoomExtent:
+      - 0
+      - 20
+    sourceParams:
+      assets: visual
+      # colormap_name: greens_r
+      # rescale:
+      #   - 0
+      #   - 10000
+    legend:
+      type: gradient
+      min: "0"
+      max: "500"
+      stops:
+        - "#4575b4"
+        - "#91bfdb"
+        - "#e0f3f8"
+        - "#ffffbf"
+        - "#fee090"
+        - "#fc8d59"
+        - "#d73027"
   - id: aot
-    stacCol: sentinel-2-l2a
+    stacCol: sentinel-2-l2a-california
     name: Aerosol Optical Thickness
     type: raster
     description: ""
@@ -20,17 +47,18 @@ layers:
       - 20
     sourceParams:
       assets: aot
-      colormap_name: rdylbu_r
+      colormap_name: rainbow_r
+      nodata: 0
       rescale:
         - 0
-        - 500
-    compare:
-      datasetId: sentinel-2-l2a
-      layerId: aot
-      mapLabel: |
-        ::js ({ dateFns, datetime, compareDatetime }) => {
-          return `${dateFns.format(datetime, 'LLL yyyy')} VS ${dateFns.format(compareDatetime, 'LLL yyyy')}`;
-        }
+        - 100
+    # compare:
+    #   datasetId: sentinel-2-l2a-california
+    #   layerId: aot
+    #   mapLabel: |
+    #     ::js ({ dateFns, datetime, compareDatetime }) => {
+    #       return `${dateFns.format(datetime, 'LLL yyyy')} VS ${dateFns.format(compareDatetime, 'LLL yyyy')}`;
+    #     }
     legend:
       type: gradient
       min: "0"
@@ -44,8 +72,8 @@ layers:
         - "#fc8d59"
         - "#d73027"
   - id: nir
-    stacCol: sentinel-2-l2a
-    name: NIR 1 (band 8) - 10m
+    stacCol: sentinel-2-l2a-california
+    name: NIR 1
     type: raster
     description: ""
     initialDatetime: newest
@@ -54,10 +82,11 @@ layers:
       - 20
     sourceParams:
       assets: nir
-      colormap_name: coolwarm
+      colormap_name: rainbow_r
+      nodata: 0
       rescale:
         - 0
-        - 500
+        - 2000
     legend:
       type: gradient
       min: "0"
@@ -71,8 +100,8 @@ layers:
         - "#fc8d59"
         - "#d73027"
   - id: red
-    stacCol: sentinel-2-l2a
-    name: Red (band 4) - 10m
+    stacCol: sentinel-2-l2a-california
+    name: Red
     type: raster
     description: ""
     initialDatetime: newest
@@ -81,10 +110,11 @@ layers:
       - 20
     sourceParams:
       assets: red
-      colormap_name: coolwarm
+      colormap_name: reds_r
+      nodata: 0
       rescale:
         - 0
-        - 500
+        - 2000
     legend:
       type: gradient
       min: "0"
@@ -98,8 +128,8 @@ layers:
         - "#fc8d59"
         - "#d73027"
   - id: blue
-    stacCol: sentinel-2-l2a
-    name: Blue (band 2) - 10m
+    stacCol: sentinel-2-l2a-california
+    name: Blue
     type: raster
     description: ""
     initialDatetime: newest
@@ -108,10 +138,11 @@ layers:
       - 20
     sourceParams:
       assets: blue
-      colormap_name: coolwarm
+      colormap_name: blues_r
+      nodata: 0
       rescale:
         - 0
-        - 500
+        - 2000
     legend:
       type: gradient
       min: "0"
@@ -125,8 +156,8 @@ layers:
         - "#fc8d59"
         - "#d73027"
   - id: green
-    stacCol: sentinel-2-l2a
-    name: Green (band 3) - 10m
+    stacCol: sentinel-2-l2a-california
+    name: Green
     type: raster
     description: ""
     initialDatetime: newest
@@ -135,10 +166,11 @@ layers:
       - 20
     sourceParams:
       assets: green
-      colormap_name: coolwarm
+      colormap_name: greens_r
+      nodata: 0
       rescale:
         - 0
-        - 500
+        - 2000
     legend:
       type: gradient
       min: "0"
@@ -151,9 +183,9 @@ layers:
         - "#fee090"
         - "#fc8d59"
         - "#d73027"
-  - id: scl
-    stacCol: sentinel-2-l2a
-    name: Scene classification map (SCL)
+  - id: swir16
+    stacCol: sentinel-2-l2a-california
+    name: SWIR 16
     type: raster
     description: ""
     initialDatetime: newest
@@ -161,11 +193,40 @@ layers:
       - 0
       - 20
     sourceParams:
-      assets: scl
-      colormap_name: coolwarm
+      assets: swir16
+      colormap_name: cfastie
+      nodata: 0
       rescale:
         - 0
-        - 500
+        - 1000
+    legend:
+      type: gradient
+      min: "0"
+      max: "500"
+      stops:
+        - "#4575b4"
+        - "#91bfdb"
+        - "#e0f3f8"
+        - "#ffffbf"
+        - "#fee090"
+        - "#fc8d59"
+        - "#d73027"
+  - id: swir22
+    stacCol: sentinel-2-l2a-california
+    name: SWIR 22
+    type: raster
+    description: ""
+    initialDatetime: newest
+    zoomExtent:
+      - 0
+      - 20
+    sourceParams:
+      assets: swir22
+      colormap_name: cfastie
+      nodata: 0
+      rescale:
+        - 0
+        - 1000
     legend:
       type: gradient
       min: "0"
