@@ -24,18 +24,18 @@ layers:
       # rescale:
       #   - 0
       #   - 10000
-    legend:
-      type: gradient
-      min: "0"
-      max: "500"
-      stops:
-        - "#4575b4"
-        - "#91bfdb"
-        - "#e0f3f8"
-        - "#ffffbf"
-        - "#fee090"
-        - "#fc8d59"
-        - "#d73027"
+    # legend:
+    #   type: gradient
+    #   min: "0"
+    #   max: "500"
+    #   stops:
+    #     - "#4575b4"
+    #     - "#91bfdb"
+    #     - "#e0f3f8"
+    #     - "#ffffbf"
+    #     - "#fee090"
+    #     - "#fc8d59"
+    #     - "#d73027"
   - id: aot
     stacCol: sentinel-2-l2a-california
     name: Sentinel 2 - Aerosol Optical Thickness
@@ -62,15 +62,15 @@ layers:
     legend:
       type: gradient
       min: "0"
-      max: "500"
+      max: "100"
       stops:
-        - "#4575b4"
-        - "#91bfdb"
-        - "#e0f3f8"
-        - "#ffffbf"
-        - "#fee090"
-        - "#fc8d59"
-        - "#d73027"
+        - "#ff0000"
+        - "#ff7e41"
+        - "#d5dd7f"
+        - "#7effb5"
+        - "#2bdddd"
+        - "#2c7ef7"
+        - "#8000ff"
   - id: nir
     stacCol: sentinel-2-l2a-california
     name: Sentinel 2 - NIR 1
@@ -90,15 +90,15 @@ layers:
     legend:
       type: gradient
       min: "0"
-      max: "500"
+      max: "2000"
       stops:
-        - "#4575b4"
-        - "#91bfdb"
-        - "#e0f3f8"
-        - "#ffffbf"
-        - "#fee090"
-        - "#fc8d59"
-        - "#d73027"
+        - "#ff0000"
+        - "#ff7e41"
+        - "#d5dd7f"
+        - "#7effb5"
+        - "#2bdddd"
+        - "#2c7ef7"
+        - "#8000ff"
   - id: red
     stacCol: sentinel-2-l2a-california
     name: Sentinel 2 - Red
@@ -118,15 +118,15 @@ layers:
     legend:
       type: gradient
       min: "0"
-      max: "500"
+      max: "2000"
       stops:
-        - "#4575b4"
-        - "#91bfdb"
-        - "#e0f3f8"
-        - "#ffffbf"
-        - "#fee090"
-        - "#fc8d59"
-        - "#d73027"
+        - "#67000d"
+        - "#b11218"
+        - "#e32f27"
+        - "#fb6b4b"
+        - "#fca082"
+        - "#fdd4c2"
+        - "#fff5f0"
   - id: blue
     stacCol: sentinel-2-l2a-california
     name: Sentinel 2 - Blue
@@ -146,15 +146,15 @@ layers:
     legend:
       type: gradient
       min: "0"
-      max: "500"
+      max: "2000"
       stops:
-        - "#4575b4"
-        - "#91bfdb"
-        - "#e0f3f8"
-        - "#ffffbf"
-        - "#fee090"
-        - "#fc8d59"
-        - "#d73027"
+        - "#08306b"
+        - "#105ba4"
+        - "#3787c0"
+        - "#6caed6"
+        - "#abd0e6"
+        - "#d6e6f4"
+        - "#f7fbff"
   - id: green
     stacCol: sentinel-2-l2a-california
     name: Sentinel 2 - Green
@@ -174,15 +174,15 @@ layers:
     legend:
       type: gradient
       min: "0"
-      max: "500"
+      max: "2000"
       stops:
-        - "#4575b4"
-        - "#91bfdb"
-        - "#e0f3f8"
-        - "#ffffbf"
-        - "#fee090"
-        - "#fc8d59"
-        - "#d73027"
+        - "#00441b"
+        - "#0b7734"
+        - "#37a055"
+        - "#75c477"
+        - "#aedea7"
+        - "#dbf1d6"
+        - "#f7fcf5"
   - id: swir16
     stacCol: sentinel-2-l2a-california
     name: Sentinel 2 - SWIR 16
@@ -194,7 +194,7 @@ layers:
       - 20
     sourceParams:
       assets: swir16
-      colormap_name: cfastie
+      colormap_name: rainbow_r
       nodata: 0
       rescale:
         - 0
@@ -202,15 +202,15 @@ layers:
     legend:
       type: gradient
       min: "0"
-      max: "500"
+      max: "1000"
       stops:
-        - "#4575b4"
-        - "#91bfdb"
-        - "#e0f3f8"
-        - "#ffffbf"
-        - "#fee090"
-        - "#fc8d59"
-        - "#d73027"
+        - "#ff0000"
+        - "#ff7e41"
+        - "#d5dd7f"
+        - "#7effb5"
+        - "#2bdddd"
+        - "#2c7ef7"
+        - "#8000ff"
   - id: swir22
     stacCol: sentinel-2-l2a-california
     name: Sentinel 2 - SWIR 22
@@ -222,7 +222,7 @@ layers:
       - 20
     sourceParams:
       assets: swir22
-      colormap_name: cfastie
+      colormap_name: rainbow_r
       nodata: 0
       rescale:
         - 0
@@ -230,15 +230,15 @@ layers:
     legend:
       type: gradient
       min: "0"
-      max: "500"
+      max: "1000"
       stops:
-        - "#4575b4"
-        - "#91bfdb"
-        - "#e0f3f8"
-        - "#ffffbf"
-        - "#fee090"
-        - "#fc8d59"
-        - "#d73027"
+        - "#ff0000"
+        - "#ff7e41"
+        - "#d5dd7f"
+        - "#7effb5"
+        - "#2bdddd"
+        - "#2c7ef7"
+        - "#8000ff"
 ---
 
 <Block type='wide'>
