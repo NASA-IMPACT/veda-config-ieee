@@ -1,0 +1,61 @@
+---
+id: water-mask
+name: 'Water Mask'
+description: "Water Mask generated from sentinel 2 bands"
+media:
+  src: ::file ./watermask.png
+  alt: 2018 overall Social Vulnerability Index (SVI).
+  author:
+    name: NASA
+    url:
+layers:
+  - id: water-mask-layer
+    stacCol: watermask-from-sentinel-2
+    name: water mask
+    type: raster
+    description: 'water mask'
+    zoomExtent:
+      - 2
+      - 16
+    sourceParams:
+      resampling: bilinear
+      bidx: 1
+      colormap_name: viridis
+      rescale:
+        - 0
+        - 1
+    compare:
+      datasetId: water-mask
+      layerId: water-mask-layer
+      mapLabel: |
+        ::js ({ dateFns, datetime, compareDatetime }) => {
+          return `${dateFns.format(datetime, 'yyyy')} VS ${dateFns.format(compareDatetime, 'yyyy')}`;
+        }
+    legend:
+      type: gradient
+      label: Water mask
+      min: "0"
+      max: "1"
+      stops:
+        - '#440154'
+        - '#3b528b'
+        - '#21918c'
+        - '#5ec962'
+        - '#fde725'
+---
+
+<Block>
+<Prose>
+# Water Mask from Sentinel-2 Dataset
+The Water Mask Data is derived from Sentinel-2 dataset.
+
+It uses the Green and the NIR band to generate the Normalized Difference Water Index (NDWI) and then uses thresholding to derive the water mask.
+
+The formula is:
+
+```
+ndwi = (green - nir)/(green + nir)
+water_mask =  result > threshold
+```
+</Prose>
+</Block>
